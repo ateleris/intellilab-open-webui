@@ -20,6 +20,11 @@
 			return;
 		}
 
+		if (modelInfo.id === '') {
+			toast.error('Error: Model ID cannot be empty. Please enter a valid ID to proceed.');
+			return;
+		}
+
 		if (modelInfo) {
 			const res = await createNewModel(localStorage.token, {
 				...modelInfo,
@@ -32,7 +37,7 @@
 				},
 				params: { ...modelInfo.params }
 			}).catch((error) => {
-				toast.error(error);
+				toast.error(`${error}`);
 				return null;
 			});
 

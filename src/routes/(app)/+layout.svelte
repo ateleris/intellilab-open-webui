@@ -97,7 +97,7 @@
 			banners.set(await getBanners(localStorage.token));
 			tools.set(await getTools(localStorage.token));
 
-			document.addEventListener('keydown', function (event) {
+			document.addEventListener('keydown', async function (event) {
 				const isCtrlPressed = event.ctrlKey || event.metaKey; // metaKey is for Cmd key on Mac
 				// Check if the Shift key is pressed
 				const isShiftPressed = event.shiftKey;
@@ -164,6 +164,18 @@
 					console.log('showShortcuts');
 					document.getElementById('show-shortcuts-button')?.click();
 				}
+
+				// Check if Ctrl + Shift + ' is pressed
+				if (isCtrlPressed && isShiftPressed && event.key.toLowerCase() === `'`) {
+					event.preventDefault();
+					console.log('temporaryChat');
+					temporaryChatEnabled.set(!$temporaryChatEnabled);
+					await goto('/');
+					const newChatButton = document.getElementById('new-chat-button');
+					setTimeout(() => {
+						newChatButton?.click();
+					}, 0);
+				}
 			});
 
 			if ($user.role === 'admin' && ($settings?.showChangelog ?? true)) {
@@ -221,7 +233,7 @@
 
 <div class="app relative">
 	<div
-		class=" text-gray-700 dark:text-gray-100 bg-white dark:bg-gray-900 h-screen max-h-[100dvh] overflow-auto flex flex-row"
+		class=" text-gray-700 dark:text-gray-100 bg-white dark:bg-gray-900 h-screen max-h-[100dvh] overflow-auto flex flex-row justify-end"
 	>
 		{#if loaded}
 			{#if !['user', 'admin'].includes($user.role)}
