@@ -142,13 +142,13 @@
 	<div class="w-full absolute top-0 left-0 right-0 h-8 drag-region" />
 
 	{#if loaded}
-		<div class="fixed m-10 z-50">
+		<div class="fixed z-50">
 			<div class="flex space-x-2">
 				<div class=" self-center">
 					<img
 						crossorigin="anonymous"
 						src="{WEBUI_BASE_URL}/static/splash.png"
-						class=" w-6 rounded-full dark:invert"
+						class="w-40 rounded-full dark:invert"
 						alt="logo"
 					/>
 				</div>
