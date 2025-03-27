@@ -268,6 +268,7 @@
 
 		<hr class="border-gray-100 dark:border-gray-850 my-4" />
 
+		{#if false}
 		<div class="flex justify-between items-center text-sm">
 			<div class="  font-medium">{$i18n.t('API keys')}</div>
 			<button
@@ -427,6 +428,7 @@
 				{/if}
 			</div>
 		{/if}
+                {/if}
 	</div>
 
 	<div class="flex justify-end pt-3 text-sm font-medium">
