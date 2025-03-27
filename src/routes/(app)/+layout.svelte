@@ -222,6 +222,7 @@
 </script>
 
 <SettingsModal bind:show={$showSettings} />
+{#if false}
 <ChangelogModal bind:show={$showChangelog} />
 
 {#if version && compareVersion(version.latest, version.current) && ($settings?.showUpdateToast ?? true)}
@@ -235,7 +236,7 @@
 		/>
 	</div>
 {/if}
-
+{/if}
 <div class="app relative">
 	<div
 		class=" text-gray-700 dark:text-gray-100 bg-white dark:bg-gray-900 h-screen max-h-[100dvh] overflow-auto flex flex-row justify-end"
