@@ -122,7 +122,7 @@
 		if (logo) {
 			const isDarkMode = document.documentElement.classList.contains('dark');
 
-			if (isDarkMode) {
+			if (false) {
 				const darkImage = new Image();
 				darkImage.src = '/static/favicon-dark.png';
 
