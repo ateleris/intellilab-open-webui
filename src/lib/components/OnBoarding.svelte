@@ -22,7 +22,7 @@
 				darkImage.src = '/static/splash.png';
 
 				darkImage.onload = () => {
-					logo.src = '/static/splash.png';
+					logo.src = '/static/splash-dark.png';
 					logo.style.filter = ''; // Ensure no inversion is applied if splash-dark.png exists
 				};
 
